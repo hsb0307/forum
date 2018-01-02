@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A52E620-CB37-42A1-B4EF-61C676E07F5E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Forum.Tests</RootNamespace>
+    <AssemblyName>Forum.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlClient, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.4.0\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountTest.cs" />
+    <Compile Include="ENodeExtensions.cs" />
+    <Compile Include="PostTest.cs" />
+    <Compile Include="Providers\CommandTopicProvider.cs" />
+    <Compile Include="Providers\EventTopicProvider.cs" />
+    <Compile Include="ReplyTest.cs" />
+    <Compile Include="SectionTest.cs" />
+    <Compile Include="TestBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Forum.Web\connectionStrings.config">
+      <Link>connectionStrings.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="app.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ECommon\ECommon.Autofac\ECommon.Autofac.csproj">
+      <Project>{a71133b0-417f-4292-9014-0ffc266f7f1d}</Project>
+      <Name>ECommon.Autofac</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECommon\ECommon.Dapper\ECommon.Dapper.csproj">
+      <Project>{25a3214d-93fe-480b-a0eb-29b1ad260f0e}</Project>
+      <Name>ECommon.Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECommon\ECommon.JsonNet\ECommon.JsonNet.csproj">
+      <Project>{40106589-1671-4ae6-ad80-91318565fc91}</Project>
+      <Name>ECommon.JsonNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECommon\ECommon.Log4Net\ECommon.Log4Net.csproj">
+      <Project>{59548b26-d203-44be-a71f-c3df6c56c1e8}</Project>
+      <Name>ECommon.Log4Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECommon\ECommon\ECommon.csproj">
+      <Project>{ee1f37f1-ec3c-4e06-b6e3-bfada60515b2}</Project>
+      <Name>ECommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ENode\ENode.EQueue\ENode.EQueue.csproj">
+      <Project>{039a002f-aaca-47ea-a119-e9666239379c}</Project>
+      <Name>ENode.EQueue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ENode\ENode.SqlServer\ENode.SqlServer.csproj">
+      <Project>{35fd4aad-fffa-43fb-b0e0-6be315c85482}</Project>
+      <Name>ENode.SqlServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ENode\ENode\ENode.csproj">
+      <Project>{ab33bc9b-63cc-49f5-8681-3d4d0135f520}</Project>
+      <Name>ENode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EQueue\EQueue\EQueue.csproj">
+      <Project>{2a57127e-5570-4059-84e8-481fcc1c38fb}</Project>
+      <Name>EQueue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.CommandHandlers\Forum.CommandHandlers.csproj">
+      <Project>{985e2001-f607-44bf-a84b-31e9b7d89d0c}</Project>
+      <Name>Forum.CommandHandlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.Commands\Forum.Commands.csproj">
+      <Project>{7787ec6c-9cf3-401c-803a-b4da2b0ca9ef}</Project>
+      <Name>Forum.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.Denormalizers.Dapper\Forum.Denormalizers.Dapper.csproj">
+      <Project>{433dd072-0748-4440-ba1b-4a0d6e507d3b}</Project>
+      <Name>Forum.Denormalizers.Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.Domain.Dapper\Forum.Domain.Dapper.csproj">
+      <Project>{6ad347f8-d02e-4aaa-a72b-c4ad93971986}</Project>
+      <Name>Forum.Domain.Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.Domain\Forum.Domain.csproj">
+      <Project>{5a4055c3-89bc-4149-8a6d-06ce985080c9}</Project>
+      <Name>Forum.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.Infrastructure\Forum.Infrastructure.csproj">
+      <Project>{86985782-8588-48da-81ab-ffd3b855c73c}</Project>
+      <Name>Forum.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.ProcessManagers\Forum.ProcessManagers.csproj">
+      <Project>{9790a5c5-38e6-4318-97f1-a07e3b2cbd8d}</Project>
+      <Name>Forum.ProcessManagers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.QueryServices.Dapper\Forum.QueryServices.Dapper.csproj">
+      <Project>{228e2c43-cd92-4b49-817d-3fbfbb9c50c4}</Project>
+      <Name>Forum.QueryServices.Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Forum.QueryServices\Forum.QueryServices.csproj">
+      <Project>{a0bc4ae4-1cab-4cbf-9bfb-5365f04c60ce}</Project>
+      <Name>Forum.QueryServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="logs\**" />
+    <Content Remove="logs\**" />
+    <EmbeddedResource Remove="logs\**" />
+    <None Remove="logs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Antiforgery" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\jquery\jquery-1.10.2.intellisense.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ECommon\ECommon.Autofac\ECommon.Autofac.csproj" />
+    <ProjectReference Include="..\ECommon\ECommon.Dapper\ECommon.Dapper.csproj" />
+    <ProjectReference Include="..\ECommon\ECommon.JsonNet\ECommon.JsonNet.csproj" />
+    <ProjectReference Include="..\ECommon\ECommon.Log4Net\ECommon.Log4Net.csproj" />
+    <ProjectReference Include="..\ECommon\ECommon\ECommon.csproj" />
+    <ProjectReference Include="..\ENode\ENode.EQueue\ENode.EQueue.csproj" />
+    <ProjectReference Include="..\ENode\ENode\ENode.csproj" />
+    <ProjectReference Include="..\Forum.Commands\Forum.Commands.csproj" />
+    <ProjectReference Include="..\Forum.Infrastructure\Forum.Infrastructure.csproj" />
+    <ProjectReference Include="..\Forum.QueryServices.Dapper\Forum.QueryServices.Dapper.csproj" />
+    <ProjectReference Include="..\Forum.QueryServices\Forum.QueryServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="zh" id="forum">
+<head>
+    @Html.Partial("_CommonPartial")
+</head>
+<body class="gray-bg">
+
+    <div class="row">
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="wrapper wrapper-content animated fadeInRight">
+                        <div class="ibox-content m-b-sm border-bottom">
+                            <div class="pull-left m-r-md p-xs ">
+                                <a href="/home/index"><i class="fa fa-globe text-navy mid-icon"></i></a>
+                            </div>
+                            <div class="p-xs pull-left">
+                                <h2>欢迎来到ENode论坛</h2>
+                                <span>你可以自由选择你感兴趣的话题。</span>
+                            </div>
+                            @Html.Partial("_LoginPartial")
+                            <div style="clear: both"></div>
+                        </div>
+                        @RenderBody()
+
+                        <div class="ibox-content  m-t-sm text-center">
+                            <p>Developed by netfocus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <environment include="Development">
+        <script src="~/lib/jquery/jquery-1.10.2.min.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/lib/jquery/jquery.form.js"></script>
+        <script src="~/lib/toastr/toastr.min.js"></script>
+        <script src="~/lib/com.js"></script>
+    </environment>
+    <script>
+        toastr.options.positionClass = 'toast-top-center';
+    </script>
+    @RenderSection("Script", false)
+
+</body>
+</html>
