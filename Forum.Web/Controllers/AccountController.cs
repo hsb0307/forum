@@ -17,6 +17,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Forum.Web.Controllers
 {
+    /// <summary>
+    /// 账号管理：登录；注册
+    /// </summary>
     public class AccountController : Controller
     {
         private readonly ICommandService _commandService;
