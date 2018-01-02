@@ -41,7 +41,7 @@ namespace Forum.CommandService
                 Assembly.Load("Forum.CommandHandlers"),
                 Assembly.Load("Forum.CommandService")
             };
-            var setting = new ConfigurationSetting(ConfigSettings.ENodeConnectionString);
+            var setting = new ConfigurationSetting();
 
             _enodeConfiguration = Configuration
                 .Create()
@@ -57,8 +57,8 @@ namespace Forum.CommandService
                 .UseSqlServerLockService()
                 .UseEQueue()
                 .BuildContainer()
-                .InitializeSqlServerEventStore()
-                .InitializeSqlServerLockService()
+                .InitializeSqlServerEventStore(ConfigSettings.ENodeConnectionString)
+                .InitializeSqlServerLockService(ConfigSettings.ENodeConnectionString)
                 .InitializeBusinessAssemblies(assemblies);
         }
         private static void InitializeCommandService()

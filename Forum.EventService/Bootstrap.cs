@@ -38,7 +38,7 @@ namespace Forum.EventService
                 Assembly.Load("Forum.ProcessManagers"),
                 Assembly.Load("Forum.EventService")
             };
-            var setting = new ConfigurationSetting(ConfigSettings.ENodeConnectionString);
+            var setting = new ConfigurationSetting();
 
             _enodeConfiguration = Configuration
                 .Create()
@@ -53,7 +53,7 @@ namespace Forum.EventService
                 .UseSqlServerPublishedVersionStore()
                 .UseEQueue()
                 .BuildContainer()
-                .InitializeSqlServerPublishedVersionStore()
+                .InitializeSqlServerPublishedVersionStore(ConfigSettings.ENodeConnectionString)
                 .InitializeBusinessAssemblies(assemblies);
 
             ObjectContainer.Resolve<ILoggerFactory>().Create(typeof(Program)).Info("Event service initialized.");

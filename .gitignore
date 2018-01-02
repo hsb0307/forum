@@ -1,0 +1,18 @@
+build
+packages
+
+# dotnet
+%APPDATA%
+TestResults
+bin
+obj
+*.suo
+*.user
+*.sln.cache
+*.nupkg
+*.testsettings
+*.vsmdi
+TestResult.xml
+/Forum.Web/logs
+/.vs/config/applicationhost.config
+/.vs/Forum/v15/Server/sqlite3
