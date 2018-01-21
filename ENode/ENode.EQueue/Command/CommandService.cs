@@ -132,10 +132,10 @@ namespace ENode.EQueue
                 ReplyAddress = replyAddress
             });
             return new EQueueMessage(
-                topic, 
-                (int)EQueueMessageTypeCode.CommandMessage,
-                Encoding.UTF8.GetBytes(messageData),
-                _typeNameProvider.GetTypeName(command.GetType()));
+                topic: topic, 
+                code:  (int)EQueueMessageTypeCode.CommandMessage,
+                body: Encoding.UTF8.GetBytes(messageData),
+                tag: _typeNameProvider.GetTypeName(command.GetType()));
         }
     }
 }

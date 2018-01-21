@@ -40,7 +40,8 @@ namespace ENode.EQueue
                 throw;
             }
         }
-        public async Task<AsyncTaskResult> SendMessageAsync(Producer producer, EQueueMessage message, string routingKey, string messageId, string version)
+        public async Task<AsyncTaskResult> SendMessageAsync(Producer producer, EQueueMessage message, 
+            string routingKey, string messageId, string version)
         {
             try
             {

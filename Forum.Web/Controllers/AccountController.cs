@@ -41,7 +41,9 @@ namespace Forum.Web.Controllers
         public async Task<ActionResult> Register(RegisterModel model, CancellationToken token)
         {
             string pwd = PasswordHash.PasswordHash.CreateHash(model.Password);
-            var result = await _commandService.ExecuteAsync(new RegisterNewAccountCommand(ObjectId.GenerateNewStringId(), model.AccountName, pwd), CommandReturnType.EventHandled);
+            var result = await _commandService.ExecuteAsync(
+                new RegisterNewAccountCommand(ObjectId.GenerateNewStringId(), model.AccountName, pwd), 
+                CommandReturnType.EventHandled);
             if (result.Status != AsyncTaskStatus.Success)
             {
                 return Json(new { success = false, errorMsg = result.ErrorMessage });
